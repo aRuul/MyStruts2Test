@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+    <package name="myPackage" namespace="/" extends="struts-default">
+        <action name="login" class="myPackage.LoginAction">
+            <result name="admin">/admin.jsp</result>
+            <result name="user">/user.jsp</result>
+            <result name="fail">/index.jsp</result>
+        </action>
+
+        <action name="login2-*" class="myPackage.LoginAction" method="{1}">
+            <result name="admin">/admin.jsp</result>
+            <result name="user">/user.jsp</result>
+            <result name="fail">/index.jsp</result>
+        </action>
+
+        <action name="login3" class="myPackage.LoginAction2" method="res">
+            <result name="success">/welcome.jsp</result>
+            <result name="fail">/index.jsp</result>
+        </action>
+
+        <action name="login4" class="myPackage.LoginAction3">
+            <result name="ok">/welcome.jsp</result>
+        </action>
+
+        <action name="login5" class="myPackage.LoginAction4">
+            <result name="ok">/welcome.jsp</result>
+        </action>
+    </package>
+</struts>
